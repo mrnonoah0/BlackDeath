@@ -1,0 +1,3 @@
+pyzipper
+bd4
+requests
