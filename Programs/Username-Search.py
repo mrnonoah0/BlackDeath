@@ -117,7 +117,7 @@ sites = {
             "verification": "status",
             "except": None
         },
-        "Quora": {
+               "Quora": {
             "url": f"https://www.quora.com/profile/{username}",
             "method": "get",
             "verification": "status",
@@ -279,12 +279,6 @@ sites = {
             "verification": "status",
             "except": None
         },
-        "500px": {
-            "url": f"https://500px.com/{username}",
-            "method": "get",
-            "verification": "username",
-            "except": None
-        },
         "LinkedIn": {
             "url": f"https://www.linkedin.com/in/{username}",
             "method": "get",
@@ -301,12 +295,6 @@ sites = {
             "url": f"https://www.okcupid.com/profile/{username}",
             "method": "get",
             "verification": "status",
-            "except": None
-        },
-        "Meetup": {
-            "url": f"https://www.meetup.com/members/{username}",
-            "method": "get",
-            "verification": "username",
             "except": None
         },
         "CodePen": {
@@ -339,18 +327,6 @@ sites = {
             "verification": "status",
             "except": None
         },
-        "Snapfish": {
-            "url": f"https://www.snapfish.com/{username}",
-            "method": "get",
-            "verification": "status",
-            "except": None
-        },
-        "Ravelry": {
-            "url": f"https://www.ravelry.com/people/{username}",
-            "method": "get",
-            "verification": "username",
-            "except": None
-        },
         "ReverbNation": {
             "url": f"https://www.reverbnation.com/{username}",
             "method": "get",
@@ -379,7 +355,7 @@ sites = {
             "url": f"https://hootsuite.com/{username}",
             "method": "get",
             "verification": "status",
-            "except": None
+            "except": None  
         },
         "Prezi": {
             "url": f"https://prezi.com/{username}",
@@ -495,12 +471,6 @@ sites = {
             "verification": "status",
             "except": None
         },
-        "Snapfish": {
-            "url": f"https://www.snapfish.com/{username}",
-            "method": "get",
-            "verification": "status",
-            "except": None
-        },
         "DeviantArt": {
             "url": f"https://www.deviantart.com/{username}",
             "method": "get",
@@ -603,30 +573,6 @@ sites = {
             "verification": "status",
             "except": ["Oops! That page can’t be found."]
         },
-        "Codecademy": {
-            "url": f"https://www.codecademy.com/profiles/{username}",
-            "method": "get",
-            "verification": "status",
-            "except": ["This profile could not be found"]
-        },
-        "Gravatar": {
-            "url": f"https://gravatar.com/{username}",
-            "method": "get",
-            "verification": "status",
-            "except": ["Uh oh. Page not found"]
-        },
-        "Dev To": {
-            "url": f"https://dev.to/{username}",
-            "method": "get",
-            "verification": "status",
-            "except": ["This page does not exist"]
-        },
-        "Kaskus": {
-            "url": f"https://www.kaskus.co.id/profile/@{username}",
-            "method": "get",
-            "verification": "status",
-            "except": ["We can't find the page you are looking for"]
-        },
         "Crunchbase": {
             "url": f"https://www.crunchbase.com/person/{username}",
             "method": "get",
@@ -647,11 +593,6 @@ last_key = list(sites.keys())[-1]
 
 for site, data in sites.items():
     try:
-        if data["method"] == "get":
-            response = requests.get(data["url"])
-        elif data["method"] == "post":
-            response = requests.post(data["url"])
-
         if data == "Roblox":
             url = f"https://api.roblox.com/users/get-by-username?username={username}"
             response = requests.get(url)
@@ -659,6 +600,11 @@ for site, data in sites.items():
                 print(f"\033[92m[+] Found {username} on {site}: https://roblox.com/users/{response.json()['Id']}/profile\033[0m")
             else:
                 print(f"\033[91m[-] {username} not found on {site}\033[0m")
+
+        if data["method"] == "get":
+            response = requests.get(data["url"])
+        elif data["method"] == "post":
+            response = requests.post(data["url"])
 
         if data["verification"] == "username":
             if data["except"]:
@@ -679,9 +625,7 @@ for site, data in sites.items():
     except Exception as e:
         print(f"\033[91m[-] Error checking {site}: {e}\033[0m")
 
-    time.sleep(1)
+    time.sleep(0.01)
 
-else:
-    print("Finished search")
-    os.system("python Main.py")
-
+print("Finished search")
+os.system("python Main.py")

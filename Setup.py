@@ -13,7 +13,6 @@ try:
         os.system("python -m pip install -r Requirements.txt")
         print("\033[92mFinished downloading\033[0m")
         time.sleep(1)
-        os.system("cls")
         os.system("python Main.py")
   
 except Exception as e:
