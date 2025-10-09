@@ -8,10 +8,14 @@ except Exception as e:
 
 option_1_txt = "Username-Search"
 option_2_txt = "IP-lookup"
+option_3_txt = "Port-Scanner"
+option_4_txt = "Website-Vulnerability"
 
 menu = f""" 
 1: {option_1_txt}
 2: {option_2_txt}
+3: {option_3_txt}
+4: {option_4_txt}
 """
 
 banner = f"""
@@ -29,6 +33,8 @@ while True:
         options =  {
             "1": option_1_txt,
             "2": option_2_txt,
+            "3": option_3_txt,
+            "4": option_4_txt
         }
 
         if choice in options:
