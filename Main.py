@@ -14,9 +14,12 @@ menu = f"""
 2: {option_2_txt}
 """
 
+banner = f"""
+"""
+
 def Menu():
     print(menu)
-    messagebox.showinfo("Black Death", "Welcome to Black Death!\n\n"    )
+    print(banner)
 
 Menu()
 
@@ -33,6 +36,7 @@ while True:
             os.system(f"python Programs/{options[choice]}.py")
         elif choice == "clear":
             os.system("cls")
+            print(menu)
         elif choice == "exit":
             exit()
         elif choice == "help":

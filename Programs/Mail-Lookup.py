@@ -1,7 +1,7 @@
 try:
     import requests
     import os
-    import dns.resolver
+    import dns
 except Exception as e:
     input(e)
 
