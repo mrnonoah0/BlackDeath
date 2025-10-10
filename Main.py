@@ -10,12 +10,14 @@ option_1_txt = "Username-Search"
 option_2_txt = "IP-lookup"
 option_3_txt = "Port-Scanner"
 option_4_txt = "Website-Vulnerability"
+option_5_txt = "IP-DDOS"
 
 menu = f""" 
 1: {option_1_txt}
 2: {option_2_txt}
 3: {option_3_txt}
 4: {option_4_txt}
+5: {option_5_txt}
 """
 
 banner = f"""
@@ -34,7 +36,8 @@ while True:
             "1": option_1_txt,
             "2": option_2_txt,
             "3": option_3_txt,
-            "4": option_4_txt
+            "4": option_4_txt,
+            "5": option_5_txt
         }
 
         if choice in options:

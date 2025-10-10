@@ -1,4 +1,1 @@
-pyzipper
-bd4
-requests
-dns
+pywhatkit
